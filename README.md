@@ -43,8 +43,8 @@ class HelloServer(WebServer):
           return { "message": "pong"}
 
 if __name__ == "__main__":
-     my_server = HelloServer()
-     my_server.run(port=8888,autorun=True)
+     my_server = HelloServer(address="0.0.0.0", port=80)
+     my_server.run()
 
 ```
 
