@@ -88,7 +88,6 @@ setup(
     install_requires=[],
     keywords=['python', 'web', 'web framework','sockets'],
     classifiers=[
-        "Development Status :: 1 - Developing",
         "Intended Audience :: Developers",
         "Programming Language :: Python :: 3",
         "Operating System :: Unix",
