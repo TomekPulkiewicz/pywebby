@@ -7,7 +7,7 @@ here = os.path.abspath(os.path.dirname(__file__))
 with codecs.open(os.path.join(here, "README.md"), encoding="utf-8") as fh:
     long_description = "\n" + fh.read()
 
-VERSION = '0.0.1'
+VERSION = '0.0.2'
 DESCRIPTION = 'An open-source python WebFramework.'
 LONG_DESCRIPTION = 'An open source python web framework. Build on top of build in `http` module in python'
 
@@ -24,7 +24,7 @@ setup(
     install_requires=[],
     keywords=['python', 'web', 'web framework','sockets'],
     classifiers=[
-        "Development Status :: 1 - Developing",
+        "Development Status :: 1 - Planning",
         "Intended Audience :: Developers",
         "Programming Language :: Python :: 3",
         "Operating System :: Unix",

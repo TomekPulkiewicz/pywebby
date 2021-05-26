@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: pywebby
+Version: 0.0.1
+Summary: An open-source python WebFramework.
+Home-page: UNKNOWN
+Author: Tomek Pulkiewicz
+Author-email: tomek@pulkiewicz.com
+License: UNKNOWN
+Description: An open source python web framework. Build on top of build in `http` module in python
+Keywords: python,web,web framework,sockets
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Description-Content-Type: text/markdown
