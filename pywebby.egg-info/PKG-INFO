@@ -1,13 +1,12 @@
 Metadata-Version: 2.1
 Name: pywebby
-Version: 0.0.0
+Version: 0.0.2
 Summary: An open-source python WebFramework.
 Home-page: UNKNOWN
 Author: Tomek Pulkiewicz
 Author-email: tomek@pulkiewicz.com
 License: UNKNOWN
 Description: 
-        
         # [PyWebby](https://pypi.org/project/pywebby/0.0.1/)
         
         -------------------
@@ -66,10 +65,6 @@ Description:
         ### License
         
         Look [here](https://github.com/TomekPulkiewicz/webby/blob/master/LICENSE)
-        
-        
-        
-        
         
 Keywords: python,web,web framework,sockets
 Platform: UNKNOWN
