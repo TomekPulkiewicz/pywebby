@@ -1,4 +1,4 @@
-# Webby
+# [PyWebby](https://pypi.org/project/pywebby/0.0.1/)
 
 -------------------
 
@@ -25,7 +25,7 @@ An open source python web framework. Build on top of build in `http` module in p
 
 #### Instalation
 ```sh
-pip install webby
+pip install pywebby
 ```
 
 #### Simple application
