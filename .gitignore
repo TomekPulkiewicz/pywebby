@@ -2,3 +2,5 @@ build/
 dist/
 *.env
 pywebby.egg-info/
+
+**/__pycache__/**
