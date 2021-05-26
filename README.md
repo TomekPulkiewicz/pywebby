@@ -34,11 +34,11 @@ from webby import WebServer
 
 class HelloServer(WebServer):
 
-     @self.path("/")
+     @WebServer.path("/")
      def main():
           return { "message": "hi"}
 
-     @self.path("/ping")
+     @WebServer.path("/ping")
      def ping():
           return { "message": "pong"}
 
