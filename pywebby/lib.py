@@ -1,6 +1,7 @@
 from http.server import SimpleHTTPRequestHandler
 from types_ import F, FGeneric
 from socketserver import TCPServer
+import os
 
 class WebServer:
 
@@ -13,11 +14,19 @@ class WebServer:
           class HttpHandlerClass(SimpleHTTPRequestHandler):
                def do_GET(self_,):
                     for route in routes:
-                         if self_.path == route["path"]:
+                         if self_.path == route['path']:                             
+                              out = str(route['function'](self))
+                              if out.startswith("{"):
+                                   self_.send_response(200)
+                                   self_.send_header("Content-Type", "text/json")
+                                   self_.end_headers()
+                                   self_.wfile.write(bytes(out, "utf8"))
+                                   return
                               self_.send_response(200)
-                              self_.send_header("Content-type", "text/json")
-                              self_.end_headers()
-                              self_.wfile.write(bytes(str(route["function"](self)), "utf-8"))
+                              self_.path = 'templates/' + out
+
+                    return SimpleHTTPRequestHandler.do_GET(self_)
+                              #self_.wfile.write(bytes(str(route["function"](self)), "utf-8"))
   
 
           
@@ -47,7 +56,7 @@ class HelloServer(WebServer):
 
      @WebServer.route("/ping")
      def ping(self):
-          return { "message": "pong"}
+          return "index.html"
 
 
 if __name__ == "__main__":
@@ -57,5 +66,5 @@ if __name__ == "__main__":
 
      # E.g. I'm changing only the port from 80 to 8888
 
-     my_server = HelloServer(port=8888)
+     my_server = HelloServer(port=8080)
      my_server.run()
