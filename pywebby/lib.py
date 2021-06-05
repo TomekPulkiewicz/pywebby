@@ -2,7 +2,11 @@ from http.server import SimpleHTTPRequestHandler
 from types_ import F, FGeneric
 from socketserver import TCPServer
 import os
-
+import subprocess
+from watchdog.observers import Observer
+from watchdog.events import PatternMatchingEventHandler
+import sys
+import time
 class WebServer:
 
      
@@ -37,8 +41,43 @@ class WebServer:
 
      def run(self):
           with TCPServer((self.host, self.port), self.http_handler) as httpd:
-               print(f"[STARTING] Server is starting at port: {self.port}")
-               httpd.serve_forever()
+               
+               connected = True
+               
+               while connected:
+                    global process
+
+                    event_handler = PatternMatchingEventHandler(patterns=["*.py","*.html"])
+
+                    def handle_event(event):
+
+                         global process
+                         print("[pywebby] Changes dectected, restarting server.")
+
+                         process.terminate()
+
+                         process = subprocess.Popen([sys.executable, __file__])
+
+                    event_handler.on_any_event = handle_event
+
+                    observer = Observer()
+                    observer.schedule(event_handler, os.getcwd(), recursive=True)
+                    observer.start()
+                    
+
+                    print("\n[pywebby] Server Started at ")
+                    process = subprocess.Popen([sys.executable, __file__])
+                    
+
+                    try:
+                         while True:
+                              time.sleep(2)
+                    except KeyboardInterrupt:
+                         observer.stop()
+                         
+                    observer.join()
+                    
+
 
      @classmethod     
      def route(_,path_: str) -> F[[FGeneric], None]:
@@ -52,7 +91,7 @@ class HelloServer(WebServer):
 
      @WebServer.route("/")
      def main(self):
-          return { "message": "hi"}
+          return { "message": "hello"}
 
      @WebServer.route("/ping")
      def ping(self):
