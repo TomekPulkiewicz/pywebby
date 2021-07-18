@@ -55,4 +55,4 @@ if __name__ == "__main__":
 
 ### License
 
-Look [here](https://github.com/TomekPulkiewicz/webby/blob/master/LICENSE)
+Under the [MIT License](https://github.com/TomekPulkiewicz/webby/blob/master/LICENSE)
